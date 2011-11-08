@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<group id="body" label="Body">
+		<groupoption id="heading" label="Heading">
+			<text id="heading" />
+		</groupoption>
+		<groupoption id="text" label="Text">
+			<html id="text" />
+		</groupoption>
+		<groupoption id="file" label="Image">
+			<file id="file" />
+		</groupoption>
+	</group>
+</form>

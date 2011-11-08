@@ -1,0 +1,17 @@
+
+RewriteEngine On
+
+RedirectMatch 404 /\\.svn(/|$)
+
+#RewriteCond %{REQUEST_URI} = /ControlPanel/
+#RewriteRule ^.*$ /ControlPanel/ [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+RewriteCond %{REQUEST_URI} !^/ControlPanel/
+RewriteRule ^.*$ index.php [NC,L]
+
+        
