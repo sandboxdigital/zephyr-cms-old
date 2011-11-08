@@ -20,7 +20,7 @@ As of version "1.0.0" it is considered stable.
 - Apache's mod_rewrite module or equivalent
 
 
-### Installation
+## Installation
 
 1. Clone:
 git clone git://github.com/sandboxdigital/zephyr-cms.git
