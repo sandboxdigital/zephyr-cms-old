@@ -1,0 +1,3 @@
+[submodule "public_html/core"]
+	path = public_html/core
+	url = git://github.com/sandboxdigital/zephyr-core.git
