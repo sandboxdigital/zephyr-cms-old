@@ -11,8 +11,11 @@ defined('CORE_PATH')
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', ROOT_PATH . '/application');
     
+defined('CORE_LIBRARY_PATH')
+    || define('CORE_LIBRARY_PATH', CORE_PATH . '/library');
+
 defined('LIBRARY_PATH')
-    || define('LIBRARY_PATH', CORE_PATH . '/library');
+    || define('LIBRARY_PATH', ROOT_PATH . '/library');
     
 defined('PUBLIC_PATH')
     || define('PUBLIC_PATH', realpath(ROOT_PATH . ''));
@@ -26,6 +29,7 @@ defined('STORAGE_PATH')
 set_include_path(implode(PATH_SEPARATOR, array(
    realpath(APPLICATION_PATH . '/models'),
     LIBRARY_PATH,
+    CORE_LIBRARY_PATH,
     get_include_path(),
 )));
 
