@@ -12,7 +12,10 @@ class Default_HomeController extends Default_AbstractController
 	
     public function indexAction() 
     {
-    
+    	
+//    	dump($this->view);
+//    	
+//    	die;
     }
 }
 
