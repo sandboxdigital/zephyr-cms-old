@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.9)
 # Database: zephyr
-# Generation Time: 2011-11-11 09:21:37 +0000
+# Generation Time: 2011-11-13 09:27:32 +0000
 # ************************************************************
 
 
@@ -34,7 +34,7 @@ CREATE TABLE `content` (
   `version` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
 
@@ -69,7 +69,7 @@ CREATE TABLE `file_folder` (
   `name` varchar(100) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `file_folder` WRITE;
 /*!40000 ALTER TABLE `file_folder` DISABLE KEYS */;
@@ -93,7 +93,7 @@ CREATE TABLE `file_folder_file` (
   `file_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
 
@@ -109,7 +109,7 @@ CREATE TABLE `log` (
   `info` text,
   PRIMARY KEY (`id`),
   KEY `datetime` (`datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
 
@@ -140,6 +140,34 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table site_layout
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `site_layout`;
+
+CREATE TABLE `site_layout` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `layout_file` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+LOCK TABLES `site_layout` WRITE;
+/*!40000 ALTER TABLE `site_layout` DISABLE KEYS */;
+
+INSERT INTO `site_layout` (`id`, `name`, `layout_file`)
+VALUES
+	(2,'Default Frontend - Subpage','frontend'),
+	(3,'Default Backend - Admin','backend'),
+	(1,'Default Fontend - Homepage','frontend_home'),
+	(4,'Backend - Login','backend_login'),
+	(35,'Default - Home','frontend_home'),
+	(36,'Default - General','frontend');
+
+/*!40000 ALTER TABLE `site_layout` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table site_page
 # ------------------------------------------------------------
 
@@ -157,7 +185,7 @@ CREATE TABLE `site_page` (
   `title` varchar(50) NOT NULL DEFAULT '""',
   `themeId` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `site_page` WRITE;
 /*!40000 ALTER TABLE `site_page` DISABLE KEYS */;
@@ -206,22 +234,22 @@ CREATE TABLE `site_page_role` (
   `pageId` int(11) NOT NULL DEFAULT '0',
   `roleId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`pageId`,`roleId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `site_page_role` WRITE;
 /*!40000 ALTER TABLE `site_page_role` DISABLE KEYS */;
 
 INSERT INTO `site_page_role` (`pageId`, `roleId`)
 VALUES
+	(2,2),
 	(2,3),
-	(2,4),
+	(3,2),
 	(3,3),
-	(3,4),
-	(4,4),
-	(5,4),
-	(16,4),
-	(17,4),
-	(20,4);
+	(4,3),
+	(5,3),
+	(16,3),
+	(17,3),
+	(20,3);
 
 /*!40000 ALTER TABLE `site_page_role` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -242,7 +270,7 @@ CREATE TABLE `site_page_template` (
   `visible` enum('yes','no') DEFAULT 'yes',
   `defaultSubPageTemplate` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `site_page_template` WRITE;
 /*!40000 ALTER TABLE `site_page_template` DISABLE KEYS */;
@@ -262,16 +290,16 @@ VALUES
 	(14,'Core - Error','core','error',NULL,NULL,'no',0),
 	(16,'Admin - Files','core_admin','files',NULL,NULL,'yes',0),
 	(17,'Core - Assets','core','assets',NULL,NULL,'yes',0),
-	(18,'OnePartners - Abstract','qgc','abstract',NULL,NULL,'yes',0),
-	(19,'OnePartners - Home','qgc','home',NULL,'home.xml','yes',0),
-	(20,'OnePartners - Information','qgc','general',NULL,'general.xml','yes',0),
+	(18,'OnePartners - Abstract','default','abstract',NULL,NULL,'yes',0),
+	(19,'OnePartners - Home','default','home',NULL,'home.xml','yes',0),
+	(20,'OnePartners - Information','default','general',NULL,'general.xml','yes',0),
 	(23,'OnePartners - Blogadmin','blog','blogadmin',NULL,NULL,'yes',0),
 	(24,'Blog - Blog','blog','blog',NULL,NULL,'yes',0),
-	(25,'OnePartners - News','qgc','news',NULL,'general.xml','yes',0),
+	(25,'OnePartners - News','default','news',NULL,'general.xml','yes',0),
 	(26,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0),
-	(29,'OnePartners - Signup','qgc','signup',NULL,NULL,'yes',0),
-	(31,'Qgc - Search','qgc','search',NULL,NULL,'yes',0),
-	(30,'OnePartners - Information Home','qgc','informationhome',NULL,'','yes',0);
+	(29,'OnePartners - Signup','default','signup',NULL,NULL,'yes',0),
+	(31,'Qgc - Search','default','search',NULL,NULL,'yes',0),
+	(30,'OnePartners - Information Home','default','informationhome',NULL,'','yes',0);
 
 /*!40000 ALTER TABLE `site_page_template` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -287,7 +315,7 @@ CREATE TABLE `site_theme` (
   `name` varchar(50) NOT NULL,
   `folder` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `site_theme` WRITE;
 /*!40000 ALTER TABLE `site_theme` DISABLE KEYS */;
@@ -313,7 +341,7 @@ CREATE TABLE `system_extensions` (
   `path` varchar(100) NOT NULL,
   `locked` enum('yes','no') NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
 
@@ -331,7 +359,7 @@ CREATE TABLE `user` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
@@ -355,7 +383,7 @@ CREATE TABLE `user_role` (
   `user_id` int(11) NOT NULL DEFAULT '0',
   `role_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
