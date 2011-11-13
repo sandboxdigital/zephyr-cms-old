@@ -1,5 +1,5 @@
 <?php
-class Getreading_AbstractController extends Tg_Content_Controller
+class Default_AbstractController extends Tg_Content_Controller
 {
 	public function init ()
 	{

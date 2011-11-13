@@ -2,7 +2,7 @@
 
 require_once ('AbstractController.php');
 
-class Getreading_GeneralController extends Getreading_AbstractController
+class Default_GeneralController extends Default_AbstractController
 {
 	public function init ()
 	{
@@ -12,21 +12,6 @@ class Getreading_GeneralController extends Getreading_AbstractController
 	
     public function indexAction() {
     }
-	
-    public function fangateAction() {
-    }
-	
-    public function eventsAction() {
-    }
-	
-    public function welcomeAction() {
-    }
-
-	public function infoAction() {
-		phpinfo();
-		$this->_helper->layout->disableLayout();
-		$this->_helper->viewRenderer->setNoRender();
-	}
 }
 
 ?>

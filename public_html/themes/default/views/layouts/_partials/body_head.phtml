@@ -1,0 +1,29 @@
+<?php /*
+   declare target date; source: http://us.imdb.com/ReleaseDates?0121766 ; 
+  */
+  $day   = 21;     // Day of the countdown
+  $month = 10;      // Month of the countdown
+  $year  = 2011;   // Year of the countdown
+  $hour  = 23;     // Hour of the day (east coast time)
+  $event = "New Year's Eve, 2011"; //event
+
+  $calculation = ((mktime ($hour,0,0,$month,$day,$year) - time())/3600);
+  $hours = (int)$calculation;
+  $days  = (int)($hours/24);
+?>
+<div id="header">
+	<div id="header_inside">
+		<div id="logo"><a href="/">Home</a></div>
+		<div id="upper_links">
+			<ul class="nav">
+				<li><a href="/">Home</a></li>
+				<li><a href="/properties">Find a home</a></li>
+			</ul>			
+		</div>
+		<div id="days_header">
+			<div id="days_count"><?php echo $days?></div>
+			<div id="days_descrip">days to reserve</div>
+		</div>	
+		<div id="enquire_now"><a href="/info/enquiry" class="popup"><img src="/images/enquire_now.png" width="203" height="69" alt="Enquire Now" /></a></div>
+	</div><!--Content for  id "header_inside" Goes Here-->
+</div><!--header Goes Here-->
