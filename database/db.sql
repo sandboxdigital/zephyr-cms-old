@@ -6,8 +6,8 @@
 # http://code.google.com/p/sequel-pro/
 #
 # Host: localhost (MySQL 5.5.9)
-# Database: zephyr
-# Generation Time: 2011-11-13 09:27:32 +0000
+# Database: iris-irissite
+# Generation Time: 2011-12-08 04:00:56 +0000
 # ************************************************************
 
 
@@ -34,7 +34,7 @@ CREATE TABLE `content` (
   `version` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -69,7 +69,7 @@ CREATE TABLE `file_folder` (
   `name` varchar(100) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `file_folder` WRITE;
 /*!40000 ALTER TABLE `file_folder` DISABLE KEYS */;
@@ -93,7 +93,7 @@ CREATE TABLE `file_folder_file` (
   `file_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -109,7 +109,7 @@ CREATE TABLE `log` (
   `info` text,
   PRIMARY KEY (`id`),
   KEY `datetime` (`datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -150,7 +150,7 @@ CREATE TABLE `site_layout` (
   `name` varchar(50) NOT NULL,
   `layout_file` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `site_layout` WRITE;
 /*!40000 ALTER TABLE `site_layout` DISABLE KEYS */;
@@ -185,41 +185,32 @@ CREATE TABLE `site_page` (
   `title` varchar(50) NOT NULL DEFAULT '""',
   `themeId` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `site_page` WRITE;
 /*!40000 ALTER TABLE `site_page` DISABLE KEYS */;
 
 INSERT INTO `site_page` (`id`, `left`, `right`, `name`, `templateId`, `action`, `locked`, `visible`, `title`, `themeId`)
 VALUES
-	(1,1,56,'root',19,'',1,1,'Home',35),
-	(2,24,51,'admin',5,'',1,0,'Admin',3),
-	(3,27,34,'site',6,'',1,1,'Site',3),
-	(4,28,29,'pages',6,'pages',1,1,'Pages',3),
-	(5,30,31,'templates',6,'templates',1,1,'Templates',3),
-	(6,2,3,'activity',25,'',0,1,'Activity',36),
-	(8,16,17,'login',3,'',0,0,'Login',4),
-	(9,18,19,'register',4,'',0,0,'Register',2),
-	(10,35,36,'content',8,'',1,1,'Content',3),
-	(11,20,23,'info',2,'',0,0,'Footer',2),
-	(12,21,22,'tandc',2,'',0,1,'Terms and Conditions',2),
-	(16,41,46,'user',9,'',0,1,'Users',3),
-	(17,47,50,'system',10,'',0,1,'System',3),
-	(18,42,43,'user',9,'users',0,1,'Users',3),
-	(19,44,45,'roles',9,'roles',0,1,'Roles',3),
-	(20,32,33,'themes',6,'layouts',0,1,'Themes',3),
-	(23,48,49,'modules',10,'modules',0,1,'Modules / Plugins',3),
-	(60,8,9,'social',25,'social',0,0,'Social',36),
-	(59,4,5,'project',25,'projects',0,0,'Projects',36),
-	(30,10,15,'information',30,'',0,1,'Information',37),
-	(29,37,38,'files',16,'',0,1,'Files',3),
-	(61,52,53,'subscribe',29,'',0,0,'subscribe',36),
-	(41,11,12,'about',20,'',0,1,'About',37),
-	(62,54,55,'search',31,'',0,0,'search',36),
-	(52,39,40,'reports',26,'',0,1,'Reports',3),
-	(51,25,26,'blog',23,'',0,1,'News',3),
-	(58,6,7,'news',25,'news',0,0,'News',36),
-	(57,13,14,'contact',20,'',0,1,'Contact',37);
+	(1,1,38,'root',15,'',1,1,'Home',3),
+	(2,12,37,'admin',5,'',1,0,'Admin',2),
+	(3,13,20,'site',6,'',1,1,'Site',2),
+	(4,14,15,'pages',6,'pages',1,1,'Pages',2),
+	(5,16,17,'templates',6,'templates',1,1,'Templates',2),
+	(6,6,7,'about',16,'',0,1,'About',3),
+	(8,8,9,'login',3,'',0,0,'Login',3),
+	(9,10,11,'register',4,'',0,0,'Register',3),
+	(10,21,22,'content',7,'',1,1,'Content',2),
+	(11,27,32,'user',8,'',0,1,'Users',2),
+	(12,33,36,'system',9,'',0,1,'System',2),
+	(13,28,29,'user',8,'users',0,1,'Users',2),
+	(14,30,31,'roles',8,'roles',0,1,'Roles',2),
+	(15,18,19,'themes',6,'layouts',0,1,'Themes',2),
+	(16,34,35,'modules',9,'modules',0,1,'Modules / Plugins',2),
+	(20,4,5,'project',16,'projects',0,0,'Projects',3),
+	(17,23,24,'files',12,'',0,1,'Files',2),
+	(18,25,26,'reports',16,'',0,1,'Reports',2),
+	(19,2,3,'news',16,'news',0,0,'News',3);
 
 /*!40000 ALTER TABLE `site_page` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -234,7 +225,7 @@ CREATE TABLE `site_page_role` (
   `pageId` int(11) NOT NULL DEFAULT '0',
   `roleId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`pageId`,`roleId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `site_page_role` WRITE;
 /*!40000 ALTER TABLE `site_page_role` DISABLE KEYS */;
@@ -270,7 +261,7 @@ CREATE TABLE `site_page_template` (
   `visible` enum('yes','no') DEFAULT 'yes',
   `defaultSubPageTemplate` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `site_page_template` WRITE;
 /*!40000 ALTER TABLE `site_page_template` DISABLE KEYS */;
@@ -283,23 +274,17 @@ VALUES
 	(4,'Core - Register','core','register','','','yes',0),
 	(5,'Admin - Home','core_admin','index','','','yes',0),
 	(6,'Admin - Site','core_admin','site','','','yes',0),
-	(15,'Core - File','core','file',NULL,NULL,'no',0),
-	(8,'Admin - Content','core_admin','content','','','no',0),
-	(9,'Admin - Users','core_admin','user',NULL,'','yes',0),
-	(10,'Admin - System','core_admin','system',NULL,'','yes',0),
-	(14,'Core - Error','core','error',NULL,NULL,'no',0),
-	(16,'Admin - Files','core_admin','files',NULL,NULL,'yes',0),
-	(17,'Core - Assets','core','assets',NULL,NULL,'yes',0),
-	(18,'OnePartners - Abstract','default','abstract',NULL,NULL,'yes',0),
-	(19,'OnePartners - Home','default','home',NULL,'home.xml','yes',0),
-	(20,'OnePartners - Information','default','general',NULL,'general.xml','yes',0),
-	(23,'OnePartners - Blogadmin','blog','blogadmin',NULL,NULL,'yes',0),
-	(24,'Blog - Blog','blog','blog',NULL,NULL,'yes',0),
-	(25,'OnePartners - News','default','news',NULL,'general.xml','yes',0),
-	(26,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0),
-	(29,'OnePartners - Signup','default','signup',NULL,NULL,'yes',0),
-	(31,'Qgc - Search','default','search',NULL,NULL,'yes',0),
-	(30,'OnePartners - Information Home','default','informationhome',NULL,'','yes',0);
+	(11,'Core - File','core','file',NULL,NULL,'no',0),
+	(7,'Admin - Content','core_admin','content','','','no',0),
+	(8,'Admin - Users','core_admin','user',NULL,'','yes',0),
+	(9,'Admin - System','core_admin','system',NULL,'','yes',0),
+	(10,'Core - Error','core','error',NULL,NULL,'no',0),
+	(12,'Admin - Files','core_admin','files',NULL,NULL,'yes',0),
+	(13,'Core - Assets','core','assets',NULL,NULL,'yes',0),
+	(14,'Default - Abstract','default','abstract',NULL,NULL,'yes',0),
+	(15,'Default - Home','default','home',NULL,'home.xml','yes',0),
+	(16,'Default - General','default','general',NULL,'general.xml','yes',0),
+	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0);
 
 /*!40000 ALTER TABLE `site_page_template` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -315,7 +300,7 @@ CREATE TABLE `site_theme` (
   `name` varchar(50) NOT NULL,
   `folder` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `site_theme` WRITE;
 /*!40000 ALTER TABLE `site_theme` DISABLE KEYS */;
@@ -341,7 +326,7 @@ CREATE TABLE `system_extensions` (
   `path` varchar(100) NOT NULL,
   `locked` enum('yes','no') NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 
@@ -359,7 +344,7 @@ CREATE TABLE `user` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
@@ -383,7 +368,7 @@ CREATE TABLE `user_role` (
   `user_id` int(11) NOT NULL DEFAULT '0',
   `role_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
