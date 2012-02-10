@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.9)
 # Database: iris-irissite
-# Generation Time: 2011-12-08 04:00:56 +0000
+# Generation Time: 2011-12-08 04:25:51 +0000
 # ************************************************************
 
 
@@ -207,10 +207,10 @@ VALUES
 	(14,30,31,'roles',8,'roles',0,1,'Roles',2),
 	(15,18,19,'themes',6,'layouts',0,1,'Themes',2),
 	(16,34,35,'modules',9,'modules',0,1,'Modules / Plugins',2),
-	(20,4,5,'project',16,'projects',0,0,'Projects',3),
+	(20,4,5,'project',16,'projects',0,1,'Projects',3),
 	(17,23,24,'files',12,'',0,1,'Files',2),
 	(18,25,26,'reports',16,'',0,1,'Reports',2),
-	(19,2,3,'news',16,'news',0,0,'News',3);
+	(19,2,3,'news',16,'news',0,1,'News',3);
 
 /*!40000 ALTER TABLE `site_page` ENABLE KEYS */;
 UNLOCK TABLES;
