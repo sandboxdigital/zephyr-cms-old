@@ -27,7 +27,6 @@ defined('STORAGE_PATH')
     
 // Ensure library/ is in include_path
 set_include_path(implode(PATH_SEPARATOR, array(
-   realpath(APPLICATION_PATH . '/models'),
     LIBRARY_PATH,
     CORE_LIBRARY_PATH,
     get_include_path(),
@@ -48,7 +47,7 @@ try {
 
 	// Create application, bootstrap, and run
 	$application = new Zend_Application(
-		    "host_".$_SERVER['SERVER_NAME'], 
+		    'host_'.$_SERVER['SERVER_NAME'],
 		    APPLICATION_PATH . '/config/application.ini'
 		);
 
