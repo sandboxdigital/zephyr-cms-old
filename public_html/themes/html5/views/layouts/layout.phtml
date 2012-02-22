@@ -1,0 +1,46 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<?php echo $this->headTitle(); ?>
+	<?php echo $this->headMeta(); ?>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="/themes/default/js/css/style.css">
+    <script src="/themes/default/js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+
+    <div id="container">
+        <header>
+            <nav><?php echo $this->siteNav('/', array ('pruneRestricted'=>true))?></nav>
+        </header>
+        <div id="main" role="main">
+            <?php echo $this->layout()->content; ?>
+        </div>
+        <footer>
+
+        </footer>
+    </div> <!--! end of #container -->
+
+    <!-- JavaScript at the bottom for fast page loading -->
+
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+    <script defer src="/themes/default/js/plugins.js"></script>
+    <script defer src="/themes/default/js/script.js"></script>
+
+    <!-- Change UA-XXXXX-X to be your site's ID -->
+    <script>
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+    </script>
+</body>
+</html>
