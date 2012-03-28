@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.9)
 # Database: zephyr
-# Generation Time: 2012-02-21 00:59:46 +0000
+# Generation Time: 2012-03-14 23:17:03 +0000
 # ************************************************************
 
 
@@ -104,12 +104,14 @@ DROP TABLE IF EXISTS `log`;
 
 CREATE TABLE `log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id` int(11) DEFAULT '0',
-  `info` text,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ip` varchar(30) NOT NULL DEFAULT '',
+  `message` text,
+  `priority` int(11) DEFAULT NULL,
+  `priorityName` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `datetime` (`datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  KEY `datetime` (`timestamp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -137,34 +139,6 @@ VALUES
 	(3,'SUPERUSER','Superuser','Super user',NULL);
 
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Dump of table site_layout
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `site_layout`;
-
-CREATE TABLE `site_layout` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `layout_file` varchar(50) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-LOCK TABLES `site_layout` WRITE;
-/*!40000 ALTER TABLE `site_layout` DISABLE KEYS */;
-
-INSERT INTO `site_layout` (`id`, `name`, `layout_file`)
-VALUES
-	(2,'Default Frontend - Subpage','frontend'),
-	(3,'Default Backend - Admin','backend'),
-	(1,'Default Fontend - Homepage','frontend_home'),
-	(4,'Backend - Login','backend_login'),
-	(35,'Default - Home','frontend_home'),
-	(36,'Default - General','frontend');
-
-/*!40000 ALTER TABLE `site_layout` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -283,8 +257,7 @@ VALUES
 	(9,'Admin - System','core_admin','system',NULL,'','yes',0),
 	(10,'Core - Error','core','error',NULL,NULL,'no',0),
 	(12,'Admin - Files','core_admin','files',NULL,NULL,'yes',0),
-	(13,'Core - Assets','core','assets',NULL,NULL,'yes',0),
-	(14,'Default - Abstract','default','abstract',NULL,NULL,'yes',0),
+	(14,'Default - Abstract','default','abstract',NULL,NULL,'no',0),
 	(15,'Default - Home','default','home',NULL,'home.xml','yes',0),
 	(16,'Default - General','default','general',NULL,'general.xml','yes',0),
 	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0);
