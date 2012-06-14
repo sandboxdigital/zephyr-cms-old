@@ -45,6 +45,6 @@ Zend_Layout::startMvc();
 // MVC
 
 $controller = Zend_Controller_Front::getInstance();
-$controller->addModuleDirectory(Zeph_Config::getPath('%PATH_CORE_APPLICATION%/modules'));
+$controller->addModuleDirectory(Zeph_Core::getPath('%PATH_CORE_APPLICATION%/modules'));
 $controller->setDefaultModule('installer');
 $controller->dispatch();

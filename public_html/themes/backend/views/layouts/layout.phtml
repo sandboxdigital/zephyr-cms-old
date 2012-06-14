@@ -11,9 +11,9 @@
 	<?php echo $this->headLink() ?> 
 	<?php echo $this->headScript() ?>
 
-    <link href="<?php echo $this->themePath()?>/css/global.css" rel="Stylesheet" type="text/css" />
-    <link href="<?php echo $this->themePath()?>/css/admin.css" rel="Stylesheet" type="text/css" />
-	<script src="<?php echo $this->themePath()?>/js/admin.js" type="text/javascript"></script>
+    <link href="<?php echo $this->pathTheme()?>/css/global.css" rel="Stylesheet" type="text/css" />
+    <link href="<?php echo $this->pathTheme()?>/css/admin.css" rel="Stylesheet" type="text/css" />
+	<script src="<?php echo $this->pathTheme()?>/js/admin.js" type="text/javascript"></script>
 </head> 
 <body> 
     <div id="container">
@@ -29,9 +29,9 @@
         <div id="footer">
         	<div id="user">
 				<?php if ($this->currentUser){?>
-				<?php echo $this->currentUser->name?> | <a href="/login/logout">Sign out</a>
+				<?php echo $this->currentUser->name?> | <a href="<?php $this->url(array('action'=>'logout','controller'=>'login'))?>">Sign out</a>
 				<?php } else {?>
-				<a href="/register" class="green">Register</a> | <a href="/login">Log In</a>
+				<a href="/register" class="green">Register</a> | <a href="<?php $this->url(array('controller'=>'login'))?>">Log In</a>
 				<?php }?>
             </div>
         </div>
