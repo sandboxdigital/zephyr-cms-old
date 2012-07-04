@@ -1,0 +1,42 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+	<?php echo $this->headMeta(); ?> 
+	<?php echo $this->headTitle(); ?>
+	
+	<?php echo $this->headCore(array('includeJquery'=>true)); ?>
+	
+	<?php echo $this->headStyle() ?>
+	<?php echo $this->headLink() ?> 
+	<?php echo $this->headScript() ?>
+    <link href="<?php echo $this->pathTheme()?>/css/global.css" rel="Stylesheet" type="text/css" />
+	<?php 
+	$content = Tg_Content::getContent('GLOBAL')->content();
+	?>
+	<style type="text/css">
+		#navLogo {
+		background:url(/images/Sky_Logo_2004_Transparent.png) 0 0 no-repeat;
+		<?php if ($content->hasValue('adminLogo')) { ?>
+    	background-image:url(<?php echo ($content->adminLogo->getFile()->url) ?>);
+    	<?php } ?>
+		width:120px;
+		height:74px;		
+		}
+		
+		h1,
+		h2,
+		a,
+		#nav li a 
+		{
+		color:#013550;
+		}
+	</style>
+</head> 
+<body class="loginTheme"> 
+    <div id="container">
+        <div id="contentContainer">
+			<?php echo $this->layout()->content; ?>
+        </div>
+    </div>
+</body> 
+</html>
