@@ -1,68 +1,28 @@
 <?php
 
-// Define path to application directory
-    
-defined('ROOT_PATH')
-    || define('ROOT_PATH', realpath(dirname(__FILE__).''));
-    
-defined('CORE_PATH')
-    || define('CORE_PATH', ROOT_PATH . '/core/application');
-    
-defined('APPLICATION_PATH')
-    || define('APPLICATION_PATH', ROOT_PATH . '/application');
-    
-defined('CORE_LIBRARY_PATH')
-    || define('CORE_LIBRARY_PATH', CORE_PATH . '/library');
+// Application directory
+define('PATH_ROOT', realpath(dirname(__FILE__).''));
 
-defined('LIBRARY_PATH')
-    || define('LIBRARY_PATH', ROOT_PATH . '/library');
-    
-defined('PUBLIC_PATH')
-    || define('PUBLIC_PATH', realpath(ROOT_PATH . ''));
-    
-defined('STORAGE_PATH')
-    || define('STORAGE_PATH', realpath(APPLICATION_PATH . '/storage'));
+// Directory containing Zend library
+define('PATH_LIBRARY', PATH_ROOT . '/library');
 
-//echo STORAGE_PATH;die;
-    
-// Ensure library/ is in include_path
+// Zephyr core directory
+define('PATH_CORE', PATH_ROOT . '/core');
+
 set_include_path(implode(PATH_SEPARATOR, array(
-    LIBRARY_PATH,
-    CORE_LIBRARY_PATH,
+    PATH_LIBRARY,                   // Zend Framework
+    PATH_CORE.'/application/library',           // Zephyr Framework
     get_include_path(),
 )));
 
-/** Zend_Application */
-try {
-	@include_once 'Zend/Application.php';  
-	if (!class_exists ('Zend_Application'))
-		die('Can\'t find Zend_Application - is Zend Framework in your path'); 
-		
-	@include_once 'Tg/Core.php';
-	
-	if (!class_exists ('Tg_Core'))
-		die('Can\'t find Tg_Core - is Tg Framework in your path'); 
-	
-	$start = microtime();
+@include_once 'Zend/Application.php';
+if (!class_exists ('Zend_Application'))
+    die('Can\'t find Zend_Application - is Zend Framework in your path');
 
-	// Create application, bootstrap, and run
-	$application = new Zend_Application(
-		    'host_'.$_SERVER['SERVER_NAME'],
-		    APPLICATION_PATH . '/config/application.ini'
-		);
+@include_once 'Zeph/Core.php';
+if (!class_exists ('Zeph_Core'))
+    die('Can\'t find Zeph_Core - is Zephyr Core in your path');
 
-	$application->bootstrap()
-		->run();        
-} catch (Exception $e)
-{
-	dump ($e->getMessage());
-	dump ($e->getTraceAsString());
-	dump ('SESSION');
-	dump ($_SESSION);
-	dump ('POST');
-	dump ($_POST);
-	dump ('GET');
-	dump ($_GET);
-}
-            
-$end = microtime();
+$core = Zeph_Core::getInstance ();
+
+$core->run ();
