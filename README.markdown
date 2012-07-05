@@ -27,7 +27,9 @@ As of version "1.0.0" it is considered stable.
 git clone git://github.com/sandboxdigital/zephyr-cms.git
 
 2. Pull down zephyr-core submodule:
+
 git submodule init
+
 git submodule update
 
 3. Create your MySQL database

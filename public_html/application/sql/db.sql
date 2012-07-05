@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.9)
 # Database: zephyr
-# Generation Time: 2012-03-14 23:17:03 +0000
+# Generation Time: 2012-07-05 00:47:16 +0000
 # ************************************************************
 
 
@@ -169,25 +169,24 @@ LOCK TABLES `site_page` WRITE;
 
 INSERT INTO `site_page` (`id`, `left`, `right`, `name`, `templateId`, `action`, `locked`, `visible`, `title`, `themeId`, `metaTitle`, `metaDescription`, `metaKeywords`)
 VALUES
-	(1,1,38,'root',15,'',1,1,'Home',3,'','',''),
-	(2,12,37,'admin',5,'',1,0,'Admin',2,'','',''),
-	(3,13,20,'site',6,'',1,1,'Site',2,'','',''),
-	(4,14,15,'pages',6,'pages',1,1,'Pages',2,'','',''),
-	(5,16,17,'templates',6,'templates',1,1,'Templates',2,'','',''),
-	(6,6,7,'about',16,'',0,1,'About',3,'','',''),
-	(8,8,9,'login',3,'',0,0,'Login',3,'','',''),
-	(9,10,11,'register',4,'',0,0,'Register',3,'','',''),
-	(10,21,22,'content',7,'',1,1,'Content',2,'','',''),
-	(11,27,32,'user',8,'',0,1,'Users',2,'','',''),
-	(12,33,36,'system',9,'',0,1,'System',2,'','',''),
-	(13,28,29,'user',8,'users',0,1,'Users',2,'','',''),
-	(14,30,31,'roles',8,'roles',0,1,'Roles',2,'','',''),
-	(15,18,19,'themes',6,'layouts',0,1,'Themes',2,'','',''),
-	(16,34,35,'modules',9,'modules',0,1,'Modules / Plugins',2,'','',''),
-	(20,4,5,'project',16,'projects',0,1,'Projects',3,'','',''),
-	(17,23,24,'files',12,'',0,1,'Files',2,'','',''),
-	(18,25,26,'reports',16,'',0,1,'Reports',2,'','',''),
-	(19,2,3,'news',16,'news',0,1,'News',3,'','','');
+	(1,1,36,'root',21,'',1,1,'Home',1,'Zephyr - Home','',''),
+	(2,10,35,'admin',5,'',1,0,'Admin',2,'','',''),
+	(3,11,18,'site',6,'',1,1,'Site',2,'','',''),
+	(4,12,13,'pages',6,'pages',1,1,'Pages',2,'','',''),
+	(5,14,15,'templates',6,'templates',1,1,'Templates',2,'','',''),
+	(21,2,3,'enter',19,'',0,1,'Enter',1,'\"\"','\"\"','\"\"'),
+	(8,6,7,'login',3,'',0,0,'Login',1,'','',''),
+	(9,8,9,'register',4,'',0,0,'Register',1,'','',''),
+	(10,19,20,'content',7,'',1,1,'Content',2,'','',''),
+	(11,25,30,'user',8,'',0,1,'Users',2,'','',''),
+	(12,31,34,'system',9,'',0,1,'System',2,'','',''),
+	(13,26,27,'user',8,'users',0,1,'Users',2,'','',''),
+	(14,28,29,'roles',8,'roles',0,1,'Roles',2,'','',''),
+	(15,16,17,'themes',6,'layouts',0,1,'Themes',2,'','',''),
+	(16,32,33,'modules',9,'modules',0,1,'Modules / Plugins',2,'','',''),
+	(17,21,22,'files',12,'',0,1,'Files',2,'','',''),
+	(18,23,24,'reports',16,'',0,1,'Reports',2,'','',''),
+	(22,4,5,'entries',20,'',0,1,'Entries',1,'','','');
 
 /*!40000 ALTER TABLE `site_page` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -216,8 +215,7 @@ VALUES
 	(4,3),
 	(5,3),
 	(16,3),
-	(17,3),
-	(20,3);
+	(17,3);
 
 /*!40000 ALTER TABLE `site_page_role` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -257,10 +255,15 @@ VALUES
 	(9,'Admin - System','core_admin','system',NULL,'','yes',0),
 	(10,'Core - Error','core','error',NULL,NULL,'no',0),
 	(12,'Admin - Files','core_admin','files',NULL,NULL,'yes',0),
+	(18,'Easycut - Abstract','easycut','abstract',NULL,NULL,'yes',0),
 	(14,'Default - Abstract','default','abstract',NULL,NULL,'no',0),
 	(15,'Default - Home','default','home',NULL,'home.xml','yes',0),
 	(16,'Default - General','default','general',NULL,'general.xml','yes',0),
-	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0);
+	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0),
+	(19,'Easycut - Enter','easycut','enter',NULL,NULL,'yes',0),
+	(20,'Easycut - Entries','easycut','entries',NULL,NULL,'yes',0),
+	(21,'Easycut - Index','easycut','index',NULL,NULL,'yes',0),
+	(22,'Core - Assets','core','assets',NULL,NULL,'yes',0);
 
 /*!40000 ALTER TABLE `site_page_template` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -283,8 +286,7 @@ LOCK TABLES `site_theme` WRITE;
 
 INSERT INTO `site_theme` (`id`, `name`, `folder`)
 VALUES
-	(1,'Mistral','mistral'),
-	(3,'Default','default'),
+	(1,'Default','default'),
 	(2,'Backend','backend');
 
 /*!40000 ALTER TABLE `site_theme` ENABLE KEYS */;
