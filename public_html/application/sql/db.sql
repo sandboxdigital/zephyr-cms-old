@@ -6,8 +6,8 @@
 # http://code.google.com/p/sequel-pro/
 #
 # Host: localhost (MySQL 5.5.9)
-# Database: zephyr
-# Generation Time: 2012-07-05 00:47:16 +0000
+# Database: plus-ixiah
+# Generation Time: 2012-07-16 06:38:51 +0000
 # ************************************************************
 
 
@@ -169,14 +169,14 @@ LOCK TABLES `site_page` WRITE;
 
 INSERT INTO `site_page` (`id`, `left`, `right`, `name`, `templateId`, `action`, `locked`, `visible`, `title`, `themeId`, `metaTitle`, `metaDescription`, `metaKeywords`)
 VALUES
-	(1,1,36,'root',21,'',1,1,'Home',1,'Zephyr - Home','',''),
+	(1,1,36,'root',15,'',1,1,'Home',1,'','',''),
 	(2,10,35,'admin',5,'',1,0,'Admin',2,'','',''),
 	(3,11,18,'site',6,'',1,1,'Site',2,'','',''),
 	(4,12,13,'pages',6,'pages',1,1,'Pages',2,'','',''),
 	(5,14,15,'templates',6,'templates',1,1,'Templates',2,'','',''),
-	(21,2,3,'enter',19,'',0,1,'Enter',1,'\"\"','\"\"','\"\"'),
-	(8,6,7,'login',3,'',0,0,'Login',1,'','',''),
-	(9,8,9,'register',4,'',0,0,'Register',1,'','',''),
+	(7,4,5,'about',16,'',0,1,'About',1,'','',''),
+	(8,6,7,'login',3,'',0,0,'Login',2,'','',''),
+	(9,8,9,'register',4,'',0,0,'Register',2,'','',''),
 	(10,19,20,'content',7,'',1,1,'Content',2,'','',''),
 	(11,25,30,'user',8,'',0,1,'Users',2,'','',''),
 	(12,31,34,'system',9,'',0,1,'System',2,'','',''),
@@ -186,7 +186,7 @@ VALUES
 	(16,32,33,'modules',9,'modules',0,1,'Modules / Plugins',2,'','',''),
 	(17,21,22,'files',12,'',0,1,'Files',2,'','',''),
 	(18,23,24,'reports',16,'',0,1,'Reports',2,'','',''),
-	(22,4,5,'entries',20,'',0,1,'Entries',1,'','','');
+	(6,2,3,'blog',16,'',0,1,'Blog',1,'','','');
 
 /*!40000 ALTER TABLE `site_page` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -255,15 +255,10 @@ VALUES
 	(9,'Admin - System','core_admin','system',NULL,'','yes',0),
 	(10,'Core - Error','core','error',NULL,NULL,'no',0),
 	(12,'Admin - Files','core_admin','files',NULL,NULL,'yes',0),
-	(18,'Easycut - Abstract','easycut','abstract',NULL,NULL,'yes',0),
 	(14,'Default - Abstract','default','abstract',NULL,NULL,'no',0),
-	(15,'Default - Home','default','home',NULL,'home.xml','yes',0),
-	(16,'Default - General','default','general',NULL,'general.xml','yes',0),
-	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0),
-	(19,'Easycut - Enter','easycut','enter',NULL,NULL,'yes',0),
-	(20,'Easycut - Entries','easycut','entries',NULL,NULL,'yes',0),
-	(21,'Easycut - Index','easycut','index',NULL,NULL,'yes',0),
-	(22,'Core - Assets','core','assets',NULL,NULL,'yes',0);
+	(15,'Default - Home','default','home',NULL,'home.xml','yes',15),
+	(16,'Default - General','default','general',NULL,'general.xml','yes',16),
+	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0);
 
 /*!40000 ALTER TABLE `site_page_template` ENABLE KEYS */;
 UNLOCK TABLES;
