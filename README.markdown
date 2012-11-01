@@ -43,3 +43,14 @@ git submodule update
 /public_html/application/storage
 
 6. Run http://localhost/installer.php
+
+7. Access site:
+http://localhost/
+
+8. Access CMS admin with the following details:
+http://localhost/admin
+email: superuser@zephyrcms.com
+pass: password
+
+email: admin@zephyrcms.com
+pass: password

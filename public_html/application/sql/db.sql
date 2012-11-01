@@ -6,8 +6,8 @@
 # http://code.google.com/p/sequel-pro/
 #
 # Host: localhost (MySQL 5.5.9)
-# Database: plus-ixiah
-# Generation Time: 2012-07-16 06:38:51 +0000
+# Database: zephyr
+# Generation Time: 2012-10-23 01:04:53 +0000
 # ************************************************************
 
 
@@ -113,6 +113,46 @@ CREATE TABLE `log` (
   KEY `datetime` (`timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `log` WRITE;
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+
+INSERT INTO `log` (`id`, `timestamp`, `ip`, `message`, `priority`, `priorityName`)
+VALUES
+	(1,'2012-07-16 07:28:15','','Tg_Site_Route->match /',7,'DEBUG'),
+	(2,'2012-07-16 07:28:15','','Tg_Site_Route->match /home',7,'DEBUG'),
+	(3,'2012-07-16 07:28:21','','Tg_Site_Route->match /',7,'DEBUG'),
+	(4,'2012-07-16 07:28:21','','Tg_Site_Route->match /home',7,'DEBUG'),
+	(5,'2012-07-16 07:28:25','','Tg_Site_Route->match /admin',7,'DEBUG'),
+	(6,'2012-07-16 07:28:26','','Tg_Site_Route->match /themes/default/css/global.css',7,'DEBUG'),
+	(7,'2012-07-16 07:28:27','','Tg_Site_Route->match /login',7,'DEBUG'),
+	(8,'2012-07-16 07:28:27','','Tg_Site_Route->match /admin',7,'DEBUG'),
+	(9,'2012-07-16 07:28:27','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG'),
+	(10,'2012-07-16 07:28:29','','Tg_Site_Route->match /admin/site',7,'DEBUG'),
+	(11,'2012-07-16 07:28:30','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG'),
+	(12,'2012-07-16 07:29:38','','Tg_Site_Route->match /admin/site/templates',7,'DEBUG'),
+	(13,'2012-07-16 07:29:38','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG'),
+	(14,'2012-07-16 07:29:39','','Tg_Site_Route->match /extjs/images/gray/panel/white-top-bottom.gif',7,'DEBUG'),
+	(15,'2012-07-16 07:29:42','','Tg_Site_Route->match /admin/site/template-delete',7,'DEBUG'),
+	(16,'2012-07-16 07:29:42','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG'),
+	(17,'2012-07-16 07:29:48','','Tg_Site_Route->match /admin/site/pages',7,'DEBUG'),
+	(18,'2012-07-16 07:29:48','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG'),
+	(19,'2012-07-16 07:30:00','','Tg_Site_Route->match /admin/site-page-save',7,'DEBUG'),
+	(20,'2012-07-16 07:30:12','','Tg_Site_Route->match /admin/site-page-save',7,'DEBUG'),
+	(21,'2012-07-16 07:30:17','','Tg_Site_Route->match /admin/site-page-save',7,'DEBUG'),
+	(22,'2012-07-16 07:30:21','','Tg_Site_Route->match /admin/site-page-save',7,'DEBUG'),
+	(23,'2012-07-16 07:30:31','','Tg_Site_Route->match /admin/site/templates',7,'DEBUG'),
+	(24,'2012-07-16 07:30:31','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG'),
+	(25,'2012-07-16 07:30:33','','Tg_Site_Route->match /admin/site/template-delete',7,'DEBUG'),
+	(26,'2012-07-16 07:30:33','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG'),
+	(27,'2012-07-16 07:30:37','','Tg_Site_Route->match /admin/site/templates',7,'DEBUG'),
+	(28,'2012-07-16 07:30:41','','Tg_Site_Route->match /admin/site/template-delete',7,'DEBUG'),
+	(29,'2012-07-16 07:30:43','','Tg_Site_Route->match /admin/site/template-delete',7,'DEBUG'),
+	(30,'2012-07-16 07:30:45','','Tg_Site_Route->match /admin/site/template-delete',7,'DEBUG'),
+	(31,'2012-07-16 07:30:49','','Tg_Site_Route->match /admin/site/templates',7,'DEBUG'),
+	(32,'2012-07-16 07:30:49','','Tg_Site_Route->match /themes/backend/css/admin.css',7,'DEBUG');
+
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table role
@@ -153,14 +193,14 @@ CREATE TABLE `site_page` (
   `right` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `templateId` int(11) NOT NULL,
-  `action` varchar(55) DEFAULT '""',
+  `action` varchar(55) DEFAULT '',
   `locked` int(11) NOT NULL DEFAULT '0',
   `visible` int(11) NOT NULL DEFAULT '1',
-  `title` varchar(50) NOT NULL DEFAULT '""',
+  `title` varchar(50) NOT NULL DEFAULT '',
   `themeId` int(11) NOT NULL DEFAULT '1',
-  `metaTitle` varchar(255) NOT NULL DEFAULT '""',
-  `metaDescription` varchar(255) NOT NULL DEFAULT '""',
-  `metaKeywords` varchar(255) NOT NULL DEFAULT '""',
+  `metaTitle` varchar(255) NOT NULL DEFAULT '',
+  `metaDescription` varchar(255) NOT NULL DEFAULT '',
+  `metaKeywords` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -169,12 +209,12 @@ LOCK TABLES `site_page` WRITE;
 
 INSERT INTO `site_page` (`id`, `left`, `right`, `name`, `templateId`, `action`, `locked`, `visible`, `title`, `themeId`, `metaTitle`, `metaDescription`, `metaKeywords`)
 VALUES
-	(1,1,36,'root',15,'',1,1,'Home',1,'','',''),
+	(1,1,36,'root',21,'',1,1,'Home',1,'','',''),
 	(2,10,35,'admin',5,'',1,0,'Admin',2,'','',''),
 	(3,11,18,'site',6,'',1,1,'Site',2,'','',''),
 	(4,12,13,'pages',6,'pages',1,1,'Pages',2,'','',''),
 	(5,14,15,'templates',6,'templates',1,1,'Templates',2,'','',''),
-	(7,4,5,'about',16,'',0,1,'About',1,'','',''),
+	(21,2,3,'about',2,'',0,1,'About',1,'','',''),
 	(8,6,7,'login',3,'',0,0,'Login',2,'','',''),
 	(9,8,9,'register',4,'',0,0,'Register',2,'','',''),
 	(10,19,20,'content',7,'',1,1,'Content',2,'','',''),
@@ -186,7 +226,7 @@ VALUES
 	(16,32,33,'modules',9,'modules',0,1,'Modules / Plugins',2,'','',''),
 	(17,21,22,'files',12,'',0,1,'Files',2,'','',''),
 	(18,23,24,'reports',16,'',0,1,'Reports',2,'','',''),
-	(6,2,3,'blog',16,'',0,1,'Blog',1,'','','');
+	(22,4,5,'work',2,'',0,1,'Work',1,'','','');
 
 /*!40000 ALTER TABLE `site_page` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -200,22 +240,23 @@ DROP TABLE IF EXISTS `site_page_role`;
 CREATE TABLE `site_page_role` (
   `pageId` int(11) NOT NULL DEFAULT '0',
   `roleId` int(11) NOT NULL DEFAULT '0',
+  `privilege` varchar(25) NOT NULL DEFAULT 'read',
   PRIMARY KEY (`pageId`,`roleId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `site_page_role` WRITE;
 /*!40000 ALTER TABLE `site_page_role` DISABLE KEYS */;
 
-INSERT INTO `site_page_role` (`pageId`, `roleId`)
+INSERT INTO `site_page_role` (`pageId`, `roleId`, `privilege`)
 VALUES
-	(2,2),
-	(2,3),
-	(3,2),
-	(3,3),
-	(4,3),
-	(5,3),
-	(16,3),
-	(17,3);
+	(2,2,'read'),
+	(2,3,'read,write'),
+	(3,2,'read,write'),
+	(3,3,'read,write'),
+	(4,3,'read,write'),
+	(5,3,'read,write'),
+	(16,3,'read,write'),
+	(17,3,'read,write');
 
 /*!40000 ALTER TABLE `site_page_role` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -256,9 +297,11 @@ VALUES
 	(10,'Core - Error','core','error',NULL,NULL,'no',0),
 	(12,'Admin - Files','core_admin','files',NULL,NULL,'yes',0),
 	(14,'Default - Abstract','default','abstract',NULL,NULL,'no',0),
-	(15,'Default - Home','default','home',NULL,'home.xml','yes',15),
-	(16,'Default - General','default','general',NULL,'general.xml','yes',16),
-	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0);
+	(15,'Default - Home','default','home',NULL,'home.xml','yes',0),
+	(16,'Default - General','default','general',NULL,'general.xml','yes',0),
+	(17,'Admin - Reports','core_admin','reports',NULL,NULL,'yes',0),
+	(21,'Easycut - Index','easycut','index',NULL,NULL,'yes',0),
+	(22,'Core - Assets','core','assets',NULL,NULL,'yes',0);
 
 /*!40000 ALTER TABLE `site_page_template` ENABLE KEYS */;
 UNLOCK TABLES;
